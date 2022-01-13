@@ -117,7 +117,12 @@ module OmniAuth
       end
 
       def authorize_params
-        super.merge()
+        puts "#{request.params}"
+        puts "#{request.params.key?("idp")}"
+        if (request.params["idp"])
+          super.merge(idp: request.params["idp"])
+        else
+          super.merge()
        end
       end
     end
