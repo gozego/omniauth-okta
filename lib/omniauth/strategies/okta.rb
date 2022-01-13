@@ -117,12 +117,7 @@ module OmniAuth
       end
 
       def authorize_params
-        puts "authorize_params_logs: #{request.params}"
-        puts "authorize_params_logs_idp: #{request.params.key?("idp")}"
-        if (request.params["idp"] != "")
-          super.merge(idp: request.params["idp"])
-        else
-          super.merge()
+        super.merge(idp: request.params["idp"])
        end
       end
     end
