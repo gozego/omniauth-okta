@@ -120,7 +120,7 @@ module OmniAuth
         if request.params.key?("custom_idp")
           super.merge(custom_idp: request.params["custom_idp"])
         else
-          super.merge(custom_idp: request.params["custom_idp"])
+          super.merge()
        end
       end
     end
