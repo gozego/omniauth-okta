@@ -121,7 +121,6 @@ module OmniAuth
           super.merge(custom_idp: request.params["custom_idp"])
         else
           super.merge()
-        end
        end
       end
     end
