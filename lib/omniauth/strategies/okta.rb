@@ -115,6 +115,10 @@ module OmniAuth
                    leeway:            options[:jwt_leeway]
         ).first
       end
+
+      def authorize_params
+        super.merge(custom_idp: request.params["custom_idp"])
+      end
     end
   end
 end
