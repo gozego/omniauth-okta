@@ -119,7 +119,7 @@ module OmniAuth
       def authorize_params
         # super.merge(state: request.params["state"])
         if request.params.key?("state")
-          super[:state] = request.params["state"]
+          super.merge(state: request.params["state"])
           session["omniauth.state"] = request.params["state"]
         else
           super
