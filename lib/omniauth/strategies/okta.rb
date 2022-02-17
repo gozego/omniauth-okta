@@ -115,6 +115,18 @@ module OmniAuth
                    leeway:            options[:jwt_leeway]
         ).first
       end
+
+      def authorize_params
+        if request.params.key?("state")
+          params = super
+          params[:state] = request.params["state"]
+          session["omniauth.state"] = request.params["state"]
+          params
+        else
+          super
+        end
+      end
+      
     end
   end
 end
